@@ -1,0 +1,29 @@
+{
+  "name": "ghost-blitz-api",
+  "version": "1.0.0",
+  "description": "Ghost Blitz game Node API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victorlopezalonso/ghost-blitz-api.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "api",
+    "ghost",
+    "blitz"
+  ],
+  "author": "Víctor López Alonso",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victorlopezalonso/ghost-blitz-api/issues"
+  },
+  "homepage": "https://github.com/victorlopezalonso/ghost-blitz-api#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
