@@ -1,7 +1,7 @@
 import 'dotenv/config'
 import express from 'express'
-import settings from './routes/settings.js'
 import users from './routes/users.js'
+import sessions from './routes/sessions.js'
 import('./db/connection.js')
 
 const app = express()
@@ -17,5 +17,5 @@ app.listen(process.env.SERVER_PORT, () => {
 /**********************
  * Routes V1
  **********************/
-app.use('/api/v1/settings', settings)
+app.use('/api/v1/sessions', sessions)
 app.use('/api/v1/users', users)
