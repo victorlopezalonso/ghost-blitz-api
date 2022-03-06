@@ -16,7 +16,7 @@ const store = async (req, res) => {
 
   const user = await User.create({ username, email, password })
 
-  const token = jwt.sign({ id: user._id, email }, process.env.TOKEN_KEY, { expiresIn: '2h' })
+  const token = jwt.sign({ id: user._id, email }, process.env.TOKEN_KEY, { expiresIn: '2' })
 
   return res.status(201).json({ data: { token }, message: 'User created' })
 }

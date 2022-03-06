@@ -8,7 +8,5 @@ const router = Router()
 
 router.get('/', verifyToken, Users.index)
 router.post('/', validate(UserStoreRequest), Users.store)
-// router.put('/:id', verifyToken, Users.update)
-// router.delete('/:id', verifyToken, Users.destroy)
 
 export default router
