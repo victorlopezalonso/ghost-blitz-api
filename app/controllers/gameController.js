@@ -1,9 +1,13 @@
 import { Game } from '../models/game.js'
 
-const index = (req, res) => res.json({ service: 'games index' })
+const index = async (req, res) => {
+  const games = await Game.find({ user: req.user.id })
+
+  res.json({ service: 'games index', data: games })
+}
 
 const store = async (req, res) => {
-  const game = await Game.create({ user: req.user._id })
+  const game = await Game.create({ user: req.user.id })
 
   return res.status(201).json({ data: game, message: 'Game created' })
 }
