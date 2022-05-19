@@ -6,16 +6,29 @@ import games from './routes/games.js'
 import { createServer } from 'http'
 import { Server } from 'socket.io'
 import listeners from './app/sockets/listeners.js'
+import jwt from 'jsonwebtoken'
 import('./db/connection.js')
+const config = process.env
 
 const app = express()
 const httpServer = createServer(app)
 const io = new Server(httpServer, {
   cors: {
-    origin: 'http://127.0.0.1:8080',
+    origin: 'http://ghost-blitz-api.test',
     methods: ['GET', 'POST'],
     credentials: true
   }
+})
+
+io.use((socket, next) => {
+  const [, token] = socket.handshake.auth.token.split(' ')
+
+  try {
+    jwt.verify(token, config.TOKEN_KEY)
+  } catch (err) {
+    next(new Error('Authentication error with token: ' + token))
+  }
+  next()
 })
 
 io.on('connection', listeners)

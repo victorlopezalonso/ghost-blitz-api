@@ -7,7 +7,7 @@ const emitNewScreen = (client) => client.emit('new-screen', {
 
 const handleUserResponse = (client, arg) => {
   client.emit(arg.original.response === arg.response ? 'win' : 'fail')
-  // setTimeout(() => emitNewScreen(client), 1500)
+  setTimeout(() => emitNewScreen(client), 2500)
 }
 
 export default (client) => {
